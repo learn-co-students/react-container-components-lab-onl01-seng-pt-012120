@@ -2,12 +2,10 @@
 import React from 'react';
 
 const MovieReviews = (props)=>{
-const titleSummary = props.reviews.map(rev=>{return(<li className='review'>{rev.display_title}</li>)})
+    console.log(props.review)
     return(
         <div className='review-list'>
-            <ul>
-            {titleSummary}
-            </ul>
+            <h3>{props.review.summary_short}</h3>
         </div>
     )
 }

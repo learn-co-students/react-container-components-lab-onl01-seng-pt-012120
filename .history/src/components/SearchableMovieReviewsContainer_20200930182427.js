@@ -20,25 +20,16 @@ class SearchableMovieReviewsContainer extends Component{
     }
 
     handleChange=(e)=>{
+        // const searchBaseURL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query='
         this.setState({
             searchTerm: e.target.value
         })
     }
-    
-    SearchRev=(json)=>{
-        this.setState({
-            reviews: json.results
-        })
 
-    }
-    
     handleSubmit=(e)=>{
         e.preventDefault()
-        const searchBaseURL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?query='
-        fetch(searchBaseURL+this.state.searchTerm).then(resp=>resp.json()).then(json=>this.SearchRev(json))
+        console.log(this.state)
     }
-
-    
 
     render(){
         return(
@@ -47,7 +38,6 @@ class SearchableMovieReviewsContainer extends Component{
                     <input id='search-input' type='text' onChange={this.handleChange}/>
                     <button type='submit'>Search</button>
                 </form>
-                <MovieReviews key='search-results' reviews={this.state.reviews} />
             </div>
         )
     }

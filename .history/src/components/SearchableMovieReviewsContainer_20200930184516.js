@@ -28,8 +28,7 @@ class SearchableMovieReviewsContainer extends Component{
     SearchRev=(json)=>{
         this.setState({
             reviews: json.results
-        })
-
+        })        
     }
     
     handleSubmit=(e)=>{
@@ -38,8 +37,6 @@ class SearchableMovieReviewsContainer extends Component{
         fetch(searchBaseURL+this.state.searchTerm).then(resp=>resp.json()).then(json=>this.SearchRev(json))
     }
 
-    
-
     render(){
         return(
             < div className='searchable-movie-reviews'>
@@ -47,7 +44,6 @@ class SearchableMovieReviewsContainer extends Component{
                     <input id='search-input' type='text' onChange={this.handleChange}/>
                     <button type='submit'>Search</button>
                 </form>
-                <MovieReviews key='search-results' reviews={this.state.reviews} />
             </div>
         )
     }

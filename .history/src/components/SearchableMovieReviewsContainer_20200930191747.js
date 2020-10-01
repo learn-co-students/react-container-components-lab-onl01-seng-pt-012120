@@ -41,13 +41,14 @@ class SearchableMovieReviewsContainer extends Component{
     
 
     render(){
+        const searchedRevs = this.state.reviews.map(rev=><MovieReviews key={rev.date_updated} review={rev}/>)
         return(
             < div className='searchable-movie-reviews'>
                 <form onSubmit={this.handleSubmit}>
                     <input id='search-input' type='text' onChange={this.handleChange}/>
                     <button type='submit'>Search</button>
                 </form>
-                <MovieReviews key='search-results' reviews={this.state.reviews} />
+                {searchedRevs}
             </div>
         )
     }

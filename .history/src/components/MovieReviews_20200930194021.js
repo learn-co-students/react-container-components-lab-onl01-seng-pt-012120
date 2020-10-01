@@ -2,10 +2,10 @@
 import React from 'react';
 
 const MovieReviews = (props)=>{
-const titleSummary = props.reviews.map(rev=>{return(<li className='review'>{rev.display_title}</li>)})
+const titleSummary = props.reviews.map(rev=>{return(<li>{rev.display_title}</li>)})
     return(
         <div className='review-list'>
-            <ul>
+            <ul className='review'>
             {titleSummary}
             </ul>
         </div>
